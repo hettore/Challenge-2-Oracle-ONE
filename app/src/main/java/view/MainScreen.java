@@ -42,7 +42,6 @@ public class MainScreen extends javax.swing.JFrame {
         jButtonConversor = new javax.swing.JButton();
         jPanelCabecalho = new javax.swing.JPanel();
         jComboBoxEscolha = new javax.swing.JComboBox<>();
-        jButtonCheck = new javax.swing.JButton();
         jPanelImagem = new javax.swing.JPanel();
         jLabelImagem = new javax.swing.JLabel();
         jPanelRodape = new javax.swing.JPanel();
@@ -71,7 +70,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jComboBoxSigla2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabelSigla.setText("Moeda");
+        jLabelSigla.setText("Valor");
 
         jButtonConversor.setText("Converter");
 
@@ -126,9 +125,6 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        jButtonCheck.setBackground(new java.awt.Color(34, 163, 159));
-        jButtonCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanelCabecalhoLayout = new javax.swing.GroupLayout(jPanelCabecalho);
         jPanelCabecalho.setLayout(jPanelCabecalhoLayout);
         jPanelCabecalhoLayout.setHorizontalGroup(
@@ -136,17 +132,13 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(jPanelCabecalhoLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jComboBoxEscolha, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonCheck)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCabecalhoLayout.setVerticalGroup(
             jPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCabecalhoLayout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(jPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxEscolha, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jComboBoxEscolha, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
 
@@ -218,10 +210,11 @@ public class MainScreen extends javax.swing.JFrame {
         jLabelValor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelValor1.setText("Valor");
 
-        jComboBoxSigla3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxSigla3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha uma moeda>", "Dolar Americano", "Euro", "Real Brasileiro" }));
 
-        jComboBoxSigla4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxSigla4.setModel(jComboBoxSigla3.getModel());
 
+        jLabelSigla1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSigla1.setText("Moeda");
 
         jButtonConversor1.setText("Converter");
@@ -235,15 +228,15 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonConversor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelConversao1Layout.createSequentialGroup()
-                        .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUnidade3, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                        .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabelValor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldUnidade4))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxSigla4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxSigla3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelSigla1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTextFieldUnidade3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                            .addComponent(jTextFieldUnidade4, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBoxSigla3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxSigla4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelSigla1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(43, 43, 43))
         );
         jPanelConversao1Layout.setVerticalGroup(
@@ -373,7 +366,6 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCheck;
     private javax.swing.JButton jButtonConversor;
     private javax.swing.JButton jButtonConversor1;
     private javax.swing.JComboBox<String> jComboBoxEscolha;

@@ -100,7 +100,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelSigla">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Moeda"/>
+            <Property name="text" type="java.lang.String" value="Valor"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonConversor">
@@ -194,8 +194,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="jComboBoxEscolha" min="-2" pref="362" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonCheck" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -204,10 +202,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="28" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBoxEscolha" alignment="1" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="jButtonCheck" alignment="1" min="-2" pref="39" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jComboBoxEscolha" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -230,16 +225,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonCheck">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="9f" green="a3" red="22" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/check.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -345,18 +330,18 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jButtonConversor1" alignment="1" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldUnidade3" alignment="0" pref="197" max="32767" attributes="0"/>
-                              <Component id="jLabelValor1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonConversor1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jLabelValor1" max="32767" attributes="0"/>
+                              <Component id="jTextFieldUnidade3" alignment="0" pref="161" max="32767" attributes="0"/>
                               <Component id="jTextFieldUnidade4" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jComboBoxSigla4" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="jComboBoxSigla3" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="jLabelSigla1" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jComboBoxSigla3" max="32767" attributes="0"/>
+                              <Component id="jComboBoxSigla4" max="32767" attributes="0"/>
+                              <Component id="jLabelSigla1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -407,10 +392,10 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="0" value="&lt;Escolha uma moeda&gt;"/>
+                <StringItem index="1" value="Dolar Americano"/>
+                <StringItem index="2" value="Euro"/>
+                <StringItem index="3" value="Real Brasileiro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -420,13 +405,8 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxSigla4">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="jComboBoxSigla3" name="model" type="property"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -435,6 +415,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelSigla1">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Moeda"/>
           </Properties>
         </Component>
