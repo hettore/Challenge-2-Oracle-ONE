@@ -3,13 +3,18 @@
  */
 package Challenge.ConversorDeMoeda;
 
-import model.DolarPrice;
+import model.UsdBrl;
+import view.MainScreen;
 
 public class App {
 
     public static void main(String[] args) throws Exception{
         
-                System.out.println(DolarPrice.valorDolarDouble());
-        
+                System.out.println(UsdBrl.valorDolarDouble());
+
+                MainScreen tela = new MainScreen();
+                tela.setVisible(true);
     }
+
+    
 }

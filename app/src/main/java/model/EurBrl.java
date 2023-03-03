@@ -15,7 +15,7 @@ import util.JsonParser;
  *
  * @author duh_b
  */
-public class EuroPrice {
+public class EurBrl {
     
     public static String euroPrice() throws Exception {
 		try {
@@ -47,4 +47,21 @@ public class EuroPrice {
                 
                 return europ;
     }
+    
+    public static double valorEuroDouble() throws Exception {
+                String euro = euroPrice();
+		double europ = Double.parseDouble(euro);
+                
+                return europ;
+        }
+    
+    public static String valorEuroString() throws Exception {
+            return String.format("%.2f", valorEuroDouble());
+        }
+    
+    public static double converterEuro(double valor1, double europ) {
+            return valor1 * europ;
+    }
+    
+    
 }

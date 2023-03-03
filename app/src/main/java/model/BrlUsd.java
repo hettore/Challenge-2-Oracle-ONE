@@ -10,11 +10,11 @@ import org.json.JSONObject;
 import util.JsonParser;
 
 
-public class DolarPrice {
+public class BrlUsd {
 
-	public static String dolarPrice() throws Exception {
+	public static String realPrice() throws Exception {
 		try {
-			URL url = new URL("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL");
+			URL url = new URL("https://economia.awesomeapi.com.br/last/BRL-USD");
 
 			HttpURLConnection connect = (HttpURLConnection) url.openConnection();
 
@@ -27,7 +27,7 @@ public class DolarPrice {
 
 			JSONObject obj = new JSONObject(convert);
 
-			String stringname = obj.getJSONObject("USDBRL").getString("bid");
+			String stringname = obj.getJSONObject("BRLUSD").getString("bid");
 
 			return stringname;
 
@@ -36,19 +36,19 @@ public class DolarPrice {
 		}
 	}
         
-        public static double valorDolarDouble() throws Exception {
-                String dolar = dolarPrice();
-		double dolarp = Double.parseDouble(dolar);
+        public static double valorRealDouble() throws Exception {
+                String real = realPrice();
+		double realp = Double.parseDouble(real);
                 
-                return dolarp;
+                return realp;
         }
         
-        public static String valorDolarString() throws Exception {
-            return String.format("%.2f", valorDolarDouble());
+        public static String valorrealString() throws Exception {
+            return String.format("%.2f", valorRealDouble());
         }
         
-        public static double converterDolar(double valor1, double dolarp) {
-            return valor1 * dolarp;
+        public static double converterReal(double valor1, double realp) {
+            return valor1 * realp;
         }
 
 
