@@ -3,9 +3,13 @@
  */
 package Challenge.ConversorDeMoeda;
 
+import model.DolarPrice;
+
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
+        
+                System.out.println(DolarPrice.valorDolarDouble());
         
     }
 }
