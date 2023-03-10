@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.html.HTML;
+import model.BrlEur;
 import model.BrlUsd;
 import model.UsdBrl;
 import model.EurBrl;
@@ -57,14 +58,13 @@ public class MainScreen extends javax.swing.JFrame {
         jPanelTitulo = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jPanelConversao1 = new javax.swing.JPanel();
-        jTextFieldUnidade3 = new javax.swing.JTextField();
+        jTextFieldInputValor = new javax.swing.JTextField();
         jLabelValor1 = new javax.swing.JLabel();
-        jTextFieldUnidade4 = new javax.swing.JTextField();
-        jComboBoxSigla3 = new javax.swing.JComboBox<>();
-        jComboBoxSigla4 = new javax.swing.JComboBox<>();
+        jTextFieldResultado = new javax.swing.JTextField();
+        jComboBoxMoeda = new javax.swing.JComboBox<>();
         jLabelSigla1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jToggleButtonLimpar = new javax.swing.JToggleButton();
+        jButtonConverter = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         jTextFieldUnidade1.addActionListener(new java.awt.event.ActionListener() {
@@ -223,32 +223,25 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jTextFieldUnidade3.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldInputValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUnidade3ActionPerformed(evt);
+                jTextFieldInputValorActionPerformed(evt);
             }
         });
 
         jLabelValor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelValor1.setText("Quero converter:");
 
-        jTextFieldUnidade4.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUnidade4ActionPerformed(evt);
+                jTextFieldResultadoActionPerformed(evt);
             }
         });
 
-        jComboBoxSigla3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha uma moeda>", "Dolar Americano", "Euro", "Real Brasileiro" }));
-        jComboBoxSigla3.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxMoeda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha uma moeda>", "De Reais a Dólares", "De Reais a Euros", "De Dólares a Reais", "De Euros a Reais" }));
+        jComboBoxMoeda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSigla3ActionPerformed(evt);
-            }
-        });
-
-        jComboBoxSigla4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha uma moeda>", "Dolar Americano", "Euro", "Real Brasileiro" }));
-        jComboBoxSigla4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSigla4ActionPerformed(evt);
+                jComboBoxMoedaActionPerformed(evt);
             }
         });
 
@@ -256,16 +249,16 @@ public class MainScreen extends javax.swing.JFrame {
         jLabelSigla1.setText("Moeda");
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Para:");
+        jLabel2.setText("Resultado:");
 
-        jToggleButtonLimpar.setText("Limpar");
-        jToggleButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConverter.setText("Converter");
+        jButtonConverter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButtonLimparActionPerformed(evt);
+                jButtonConverterActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Converter");
+        jButton1.setText("Limpar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -278,23 +271,28 @@ public class MainScreen extends javax.swing.JFrame {
             jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConversao1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelConversao1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButtonLimpar))
+                .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelConversao1Layout.createSequentialGroup()
                         .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelValor1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
-                            .addComponent(jTextFieldUnidade3)
-                            .addComponent(jTextFieldUnidade4))
+                            .addComponent(jTextFieldInputValor))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBoxSigla3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxSigla4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelSigla1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(43, 43, 43))
+                            .addComponent(jComboBoxMoeda, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelSigla1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(43, 43, 43))
+                    .addGroup(jPanelConversao1Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConversao1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonConverter)
+                .addGap(164, 164, 164))
         );
         jPanelConversao1Layout.setVerticalGroup(
             jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,19 +303,17 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(jLabelSigla1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldUnidade3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxSigla3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
+                    .addComponent(jTextFieldInputValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonConverter)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldUnidade4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxSigla4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanelConversao1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButtonLimpar)
+                    .addComponent(jTextFieldResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -368,17 +364,23 @@ public class MainScreen extends javax.swing.JFrame {
         //talvez usar switch
         switch (opcao) {
             case 0 -> {
+//                jPanelConversao.setVisible(false);
                 jPanelConversao1.setVisible(false);
+                jTextFieldTeste.setVisible(false);
                 System.out.println(opcao);
                 System.out.println("entrou");
             }
             case 1 -> {
+//                jPanelConversao.setVisible(false);
                 jPanelConversao1.setVisible(true);
                 jTextFieldTeste.setVisible(true);
                 System.out.println(opcao);
             }
             case 2 -> {
-                jPanelConversao1.setVisible(false);
+//                jPanelConversao1.setVisible(false);
+//                jTextFieldTeste.setVisible(false);
+//                jPanelConversao.setVisible(true);
+                
                 System.out.println(opcao);
             }
             default -> {
@@ -392,29 +394,55 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUnidade1ActionPerformed
 
-    private void jTextFieldUnidade3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUnidade3ActionPerformed
+    private void jTextFieldInputValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldInputValorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUnidade3ActionPerformed
+    }//GEN-LAST:event_jTextFieldInputValorActionPerformed
 
-    private void jComboBoxSigla3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSigla3ActionPerformed
+    private void jComboBoxMoedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMoedaActionPerformed
         // TODO add your handling code here:
-        int opcao = jComboBoxSigla3.getSelectedIndex();
         
+    }//GEN-LAST:event_jComboBoxMoedaActionPerformed
+
+    private void jTextFieldTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTesteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTesteActionPerformed
+
+    private void jTextFieldResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldResultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldResultadoActionPerformed
+
+    private void jButtonConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConverterActionPerformed
+        // TODO add your handling code here:
+        
+        int opcao = jComboBoxMoeda.getSelectedIndex();
+        
+//        String pattern = "0123456789";
+//        if(!jTextFieldInputValor.equals(pattern)) {
+//            JOptionPane.showMessageDialog(rootPane, "Este campo só aceita números!");  
+//        } 
+        
+        if(jTextFieldInputValor == null){
+            JOptionPane.showMessageDialog(rootPane, "Por favor digite um número!");
+        }
+        
+        if(jComboBoxMoeda.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor escolha uma moeda para conversão!");
+        }
+        
+        
+
         switch (opcao) {
             case 0 -> jTextFieldTeste.setVisible(false);
             case 1 -> {
                 try {
-                    //Selecionando o Dolar
-                    //jTextFieldTeste.setVisible(true);
-                    
-                    //Por padrão a conversão será feira para reais BRL
-                    jComboBoxSigla4.setSelectedIndex(3);
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxSigla3.getSelectedItem()+ " é : " + UsdBrl.valorDolarString()+ " " + (String)jComboBoxSigla4.getSelectedItem());
-                    String valor1 = jTextFieldUnidade3.getText();
+                    //Selecionando de Reais a Dólares
+
+                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlUsd.valorRealString());
+                    String valor1 = jTextFieldInputValor.getText();
                     double valorCerto = Double.parseDouble(valor1);
-                    double resultado = UsdBrl.converterDolar(valorCerto, UsdBrl.valorDolarDouble());
-                    //String paraString = (new Double(resultado)).toString();
-                    jTextFieldUnidade4.setText(String.format("%.2f", resultado));
+                    double resultado = BrlUsd.converterReal(valorCerto, BrlUsd.valorRealDouble());
+                    
+                    jTextFieldResultado.setText(String.format("%.2f", resultado));
                     
                     System.out.println(resultado);
                     
@@ -424,96 +452,68 @@ public class MainScreen extends javax.swing.JFrame {
             }
             case 2 -> { 
                 try {
-                    //Selecionando o Euro
-                    //Por padrão a conversão será feira para reais BRL
-                    jComboBoxSigla4.setSelectedIndex(3);
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxSigla3.getSelectedItem()+ " é : " + EurBrl.valorEuroString()+ " " + (String)jComboBoxSigla4.getSelectedItem());
-                    String valor1 = jTextFieldUnidade3.getText();
+                    //Selecionando De Reais a Euros
+                    
+                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlEur.valorRealString());
+                    String valor1 = jTextFieldInputValor.getText();
                     double valorCerto = Double.parseDouble(valor1);
-                    double resultado = EurBrl.converterEuro(valorCerto, EurBrl.valorEuroDouble());
-                    //String paraString = (new Double(resultado)).toString();
-                    jTextFieldUnidade4.setText(String.format("%.2f", resultado));
+                    double resultado = BrlEur.converterReal(valorCerto, BrlEur.valorRealDouble());
+           
+                    jTextFieldResultado.setText(String.format("%.2f", resultado));
+                                        
+                    System.out.println(resultado);
                     
-                    
-                    jComboBoxSigla4.setSelectedIndex(3);
-                    
-                
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, e.getMessage());
                 }
             }
-
-
-        }
-    }//GEN-LAST:event_jComboBoxSigla3ActionPerformed
-
-    private void jTextFieldTesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTesteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTesteActionPerformed
-
-    private void jComboBoxSigla4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSigla4ActionPerformed
-        // TODO add your handling code here:
-        
-        int opcao = jComboBoxSigla4.getSelectedIndex();
-        //int opcao2 = jComboBoxSigla3.getSelectedIndex();
-        
-        switch (opcao) {
-            case 0 : 
-                jTextFieldTeste.setVisible(false);
-                break;
-            case 1 :
+            case 3 -> {
                 try {
-                    jTextFieldTeste.setText("1 " + jComboBoxSigla3.getName() + "é : " + UsdBrl.valorDolarDouble() * EurBrl.valorEuro() + jComboBoxSigla4.getName());
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-                }
-                break;
-            case 2 : 
-                try {
-                    jTextFieldTeste.setText("1 " + jComboBoxSigla3.getName() + "é : " + UsdBrl.valorDolarDouble() * EurBrl.valorEuro() + jComboBoxSigla4.getName());
-                } catch (Exception e) {
-                        JOptionPane.showMessageDialog(rootPane, e.getMessage());
-                }
-                break;
-            case 3 : 
-                try {
-                    //Selecionando o Real
-                    //Por padrão a conversão será feira para o valor selecionado em jcomboboxsigla3
-                    //jComboBoxSigla4.setSelectedIndex(3);
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxSigla3.getSelectedItem()+ " é : " + UsdBrl.valorDolarString() + " " + (String)jComboBoxSigla4.getSelectedItem());
-                    String valor1 = jTextFieldUnidade4.getText();
+                    //Selecionando de Dólares a Reais
+                    
+                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + UsdBrl.valorDolarString());
+                    String valor1 = jTextFieldInputValor.getText();
                     double valorCerto = Double.parseDouble(valor1);
-                    double resultado = BrlUsd.converterReal(valorCerto, BrlUsd.valorRealDouble());
-                    //String paraString = (new Double(resultado)).toString();
-                    jTextFieldUnidade3.setText(String.format("%.2f", resultado));
+                    double resultado = UsdBrl.converterDolar(valorCerto, UsdBrl.valorDolarDouble());
+           
+                    jTextFieldResultado.setText(String.format("%.2f", resultado));
+                                        
+                    System.out.println(resultado);
                     
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+                }
+            }
+            case 4 -> {
+                try {
+                    //Selecionando de Euros a Reais
                     
-                    jComboBoxSigla4.setSelectedIndex(3);
-            } catch (Exception e) {
+                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + EurBrl.valorEuroString());
+                    String valor1 = jTextFieldInputValor.getText();
+                    double valorCerto = Double.parseDouble(valor1);
+                    double resultado = EurBrl.converterEuro(valorCerto, EurBrl.valorEuroDouble());
+           
+                    jTextFieldResultado.setText(String.format("%.2f", resultado));
+                                        
+                    System.out.println(resultado);
+                    
+                } catch (Exception e) {
+                }
             }
 
+
         }
-    }//GEN-LAST:event_jComboBoxSigla4ActionPerformed
-
-    private void jTextFieldUnidade4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUnidade4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUnidade4ActionPerformed
-
-    private void jToggleButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonLimparActionPerformed
-        // TODO add your handling code here:
         
-        jTextFieldUnidade3.setText("");
-        jTextFieldUnidade4.setText("");
-        jTextFieldTeste.setText("");
-//        jComboBoxSigla3.setSelectedIndex(0);
-//        jComboBoxSigla4.setSelectedIndex(0);
-    }//GEN-LAST:event_jToggleButtonLimparActionPerformed
+        
+    }//GEN-LAST:event_jButtonConverterActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        
-        
+        jTextFieldInputValor.setText("");
+        jTextFieldResultado.setText("");
+        jTextFieldTeste.setText("");
+        jComboBoxMoeda.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -554,11 +554,11 @@ public class MainScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonConversor;
+    private javax.swing.JButton jButtonConverter;
     private javax.swing.JComboBox<String> jComboBoxEscolha;
+    private javax.swing.JComboBox<String> jComboBoxMoeda;
     private javax.swing.JComboBox<String> jComboBoxSigla1;
     private javax.swing.JComboBox<String> jComboBoxSigla2;
-    private javax.swing.JComboBox<String> jComboBoxSigla3;
-    private javax.swing.JComboBox<String> jComboBoxSigla4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelImagem;
@@ -573,11 +573,10 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelImagem;
     private javax.swing.JPanel jPanelRodape;
     private javax.swing.JPanel jPanelTitulo;
+    private javax.swing.JTextField jTextFieldInputValor;
+    private javax.swing.JTextField jTextFieldResultado;
     private javax.swing.JTextField jTextFieldTeste;
     private javax.swing.JTextField jTextFieldUnidade1;
     private javax.swing.JTextField jTextFieldUnidade2;
-    private javax.swing.JTextField jTextFieldUnidade3;
-    private javax.swing.JTextField jTextFieldUnidade4;
-    private javax.swing.JToggleButton jToggleButtonLimpar;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,11 +10,11 @@ import org.json.JSONObject;
 import util.JsonParser;
 
 
-public class BrlUsd {
+public class BrlEur {
 
 	public static String realPrice() throws Exception {
 		try {
-			URL url = new URL("https://economia.awesomeapi.com.br/last/BRL-USD");
+			URL url = new URL("https://economia.awesomeapi.com.br/last/BRL-EUR");
 
 			HttpURLConnection connect = (HttpURLConnection) url.openConnection();
 
@@ -28,7 +28,7 @@ public class BrlUsd {
 
 			JSONObject obj = new JSONObject(convert);
 
-			String stringname = obj.getJSONObject("BRLUSD").getString("bid");
+			String stringname = obj.getJSONObject("BRLEUR").getString("bid");
 
 			return stringname;
 
