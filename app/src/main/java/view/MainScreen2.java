@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.text.html.HTML;
 import model.BrlEur;
 import model.BrlUsd;
+import model.Conversor;
 import model.UsdBrl;
 import model.EurBrl;
 
@@ -19,12 +20,12 @@ import model.EurBrl;
  *
  * @author duh_b
  */
-public class MainScreen extends javax.swing.JFrame {
+public class MainScreen2 extends javax.swing.JFrame {
 
     /**
      * Creates new form MainScreen
      */
-    public MainScreen() {
+    public MainScreen2() {
         initComponents(); 
         jPanelConversao1.setVisible(false);
         jTextFieldTeste.setVisible(false);
@@ -128,8 +129,6 @@ public class MainScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor ONE");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         jComboBoxEscolha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione uma das opções >", "Conversor de moedas", "Conversor de temperatura" }));
@@ -435,16 +434,37 @@ public class MainScreen extends javax.swing.JFrame {
         
         
 
+        String SITE = "";
+        String CODE = "";
+        
         switch (opcao) {
             case 0 -> jTextFieldTeste.setVisible(false);
             case 1 -> {
-                try {
-                    //Selecionando de Reais a Dólares
+                SITE = "https://economia.awesomeapi.com.br/last/BRL-USD";
+                CODE = "BRLUSD";
+                
+            }
+            case 2 -> { 
+                
+            }
+            case 3 -> {
+               
+            }
+            case 4 -> {
+               
+                    
+            }
 
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlUsd.valorRealString());
+        }
+        
+        try {
+                    
+                    //Selecionando de Reais a Dólares
+                    String moeda = Conversor.realPrice(SITE, CODE);
+                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + moeda);
                     String valor1 = jTextFieldInputValor.getText();
                     double valorCerto = Double.parseDouble(valor1);
-                    double resultado = BrlUsd.converterReal(valorCerto, BrlUsd.valorRealDouble());
+                    double resultado = Conversor.converterReal(valorCerto, Double.parseDouble(moeda));
                     
                     jTextFieldResultado.setText(String.format("%.2f", resultado));
                     
@@ -453,60 +473,6 @@ public class MainScreen extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(rootPane, ex.getMessage());
                 }
-            }
-            case 2 -> { 
-                try {
-                    //Selecionando De Reais a Euros
-                    
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlEur.valorRealString());
-                    String valor1 = jTextFieldInputValor.getText();
-                    double valorCerto = Double.parseDouble(valor1);
-                    double resultado = BrlEur.converterReal(valorCerto, BrlEur.valorRealDouble());
-           
-                    jTextFieldResultado.setText(String.format("%.2f", resultado));
-                                        
-                    System.out.println(resultado);
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
-                }
-            }
-            case 3 -> {
-                try {
-                    //Selecionando de Dólares a Reais
-                    
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + UsdBrl.valorDolarString());
-                    String valor1 = jTextFieldInputValor.getText();
-                    double valorCerto = Double.parseDouble(valor1);
-                    double resultado = UsdBrl.converterDolar(valorCerto, UsdBrl.valorDolarDouble());
-           
-                    jTextFieldResultado.setText(String.format("%.2f", resultado));
-                                        
-                    System.out.println(resultado);
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
-                }
-            }
-            case 4 -> {
-                try {
-                    //Selecionando de Euros a Reais
-                    
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + EurBrl.valorEuroString());
-                    String valor1 = jTextFieldInputValor.getText();
-                    double valorCerto = Double.parseDouble(valor1);
-                    double resultado = EurBrl.converterEuro(valorCerto, EurBrl.valorEuroDouble());
-           
-                    jTextFieldResultado.setText(String.format("%.2f", resultado));
-                                        
-                    System.out.println(resultado);
-                    
-                } catch (Exception e) {
-                }
-            }
-
-
-        }
         
         
     }//GEN-LAST:event_jButtonConverterActionPerformed
@@ -537,20 +503,21 @@ public class MainScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainScreen().setVisible(true);
+                new MainScreen2().setVisible(true);
             }
         });
     }
