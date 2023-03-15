@@ -431,35 +431,33 @@ public class MainScreen2 extends javax.swing.JFrame {
         if(jComboBoxMoeda.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(rootPane, "Por favor escolha uma moeda para conversão!");
         }
-        
-        
 
-        String SITE = "";
+        String SITE = "https://economia.awesomeapi.com.br/last/EUR-BRL,USD-BRL,EUR-BRL,BRL-EUR,BRL-USD";
         String CODE = "";
         
         switch (opcao) {
             case 0 -> jTextFieldTeste.setVisible(false);
             case 1 -> {
-                SITE = "https://economia.awesomeapi.com.br/last/BRL-USD";
-                CODE = "BRLUSD";
-                
+                // escolha de Reais para Dólar
+                CODE = "BRLUSD";   
             }
             case 2 -> { 
-                
+                // escolha de Reais para Euros
+                CODE = "BRLEUR";   
             }
             case 3 -> {
-               
+                // escolha de Dólares para Reais
+                CODE = "USDBRL";   
             }
             case 4 -> {
-               
-                    
+                // escolha de Euros para Reais
+                CODE = "EURBRL";          
             }
-
         }
         
         try {
                     
-                    //Selecionando de Reais a Dólares
+                    //Passo a passo da conversão generica 
                     String moeda = Conversor.realPrice(SITE, CODE);
                     jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + moeda);
                     String valor1 = jTextFieldInputValor.getText();
