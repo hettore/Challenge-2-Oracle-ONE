@@ -54,8 +54,8 @@ public class MainScreen2 extends javax.swing.JFrame {
         jPanelConversao = new javax.swing.JPanel();
         jTextFieldUnidade1 = new javax.swing.JTextField();
         jLabelValor = new javax.swing.JLabel();
-        jTextFieldUnidade2 = new javax.swing.JTextField();
-        jComboBoxSigla1 = new javax.swing.JComboBox<>();
+        jTextFieldResultadoTemp = new javax.swing.JTextField();
+        jComboBoxTemperatura = new javax.swing.JComboBox<>();
         jLabelSigla = new javax.swing.JLabel();
         jButtonConversor = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -186,12 +186,17 @@ public class MainScreen2 extends javax.swing.JFrame {
         jLabelValor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelValor.setText("Valor");
 
-        jComboBoxSigla1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha o tipo de temperatura>", "Celsius (C) para Fahrenheit (F)", "Celsius (C) para Kelvin (K)", "Fahrenheit (F) para Celsius (C)", "Fahrenheit (F) para Kelvin (K)", "Kelvin (K) para Celsius (C)", "Kelvin (K) para Fahrenheit (F)" }));
+        jComboBoxTemperatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha o tipo de temperatura>", "Celsius (C) para Fahrenheit (F)", "Celsius (C) para Kelvin (K)", "Fahrenheit (F) para Celsius (C)", "Fahrenheit (F) para Kelvin (K)", "Kelvin (K) para Celsius (C)", "Kelvin (K) para Fahrenheit (F)" }));
 
         jLabelSigla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSigla.setText("Temperatura");
 
         jButtonConversor.setText("Converter");
+        jButtonConversor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConversorActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Limpar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -218,11 +223,11 @@ public class MainScreen2 extends javax.swing.JFrame {
                                     .addComponent(jTextFieldUnidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBoxSigla1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxTemperatura, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabelSigla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanelConversaoLayout.createSequentialGroup()
                                 .addGroup(jPanelConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldUnidade2, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldResultadoTemp, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2))))
@@ -241,7 +246,7 @@ public class MainScreen2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldUnidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxSigla1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelConversaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelConversaoLayout.createSequentialGroup()
@@ -249,7 +254,7 @@ public class MainScreen2 extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldUnidade2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldResultadoTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -416,7 +421,7 @@ public class MainScreen2 extends javax.swing.JFrame {
                 jPanelConversao1.setVisible(false);
 //                jTextFieldTeste.setVisible(false);
                 jPanelConversao.setVisible(true);
-                
+                jTextFieldTeste.setVisible(true);
                 System.out.println(opcao);
             }
             default -> {
@@ -536,6 +541,54 @@ public class MainScreen2 extends javax.swing.JFrame {
                   
     }//GEN-LAST:event_formWindowClosing
 
+    private void jButtonConversorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConversorActionPerformed
+        // TODO add your handling code here:
+        
+        
+        int opcao = jComboBoxTemperatura.getSelectedIndex();
+        
+         if(jTextFieldUnidade1 == null){
+            JOptionPane.showMessageDialog(rootPane, "Por favor digite um valor!");
+        }
+        
+        if(jComboBoxTemperatura.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor escolha uma moeda para conversão!");
+        }
+        
+        double resultado = 0;
+        String valor = jTextFieldUnidade1.getText();
+        double valorCerto = Double.parseDouble(valor);
+        
+        switch (opcao) {
+            case 0 ->  jTextFieldTeste.setVisible(false);
+            
+            case 1 -> resultado = Conversor.converterTemperaturaCToF(valorCerto);
+        
+            case 2 -> resultado = Conversor.converterTemperaturaCToK(valorCerto);
+               
+            case 3 -> resultado = Conversor.converterTemperaturaFToC(valorCerto);
+            
+            case 4 -> resultado = Conversor.converterTemperaturaFToK(valorCerto);
+            
+            case 5 -> resultado = Conversor.converterTemperaturaKToC(valorCerto);
+            
+            case 6 -> resultado = Conversor.converterTemperaturaKToF(valorCerto);
+             
+        }
+        
+        try {
+
+                   jTextFieldTeste.setText(jTextFieldUnidade1.getText() + (String)jComboBoxTemperatura.getSelectedItem() + " é igual a: " + String.format("%.1f", resultado));
+
+                   jTextFieldResultadoTemp.setText(String.format("%.1f", resultado));
+
+                   System.out.println(resultado);
+                    
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+                }
+    }//GEN-LAST:event_jButtonConversorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -579,7 +632,7 @@ public class MainScreen2 extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConverter;
     private javax.swing.JComboBox<String> jComboBoxEscolha;
     private javax.swing.JComboBox<String> jComboBoxMoeda;
-    private javax.swing.JComboBox<String> jComboBoxSigla1;
+    private javax.swing.JComboBox<String> jComboBoxTemperatura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -597,8 +650,8 @@ public class MainScreen2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelTitulo;
     private javax.swing.JTextField jTextFieldInputValor;
     private javax.swing.JTextField jTextFieldResultado;
+    private javax.swing.JTextField jTextFieldResultadoTemp;
     private javax.swing.JTextField jTextFieldTeste;
     private javax.swing.JTextField jTextFieldUnidade1;
-    private javax.swing.JTextField jTextFieldUnidade2;
     // End of variables declaration//GEN-END:variables
 }
