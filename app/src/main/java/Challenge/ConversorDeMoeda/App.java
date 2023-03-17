@@ -3,7 +3,8 @@
  */
 package Challenge.ConversorDeMoeda;
 
-import model.UsdBrl;
+
+import model.Conversor;
 import view.MainScreen;
 import view.MainScreen2;
 
@@ -11,8 +12,8 @@ public class App {
 
     public static void main(String[] args) throws Exception{
         
-                //System.out.println(UsdBrl.valorDolarDouble());
-
+                System.out.println(Conversor.realPrice("https://economia.awesomeapi.com.br/last/EUR-BRL,USD-BRL,EUR-BRL,BRL-EUR,BRL-USD", "BRLUSD"));
+        
                 MainScreen2 tela = new MainScreen2();
                 tela.setVisible(true);
     }

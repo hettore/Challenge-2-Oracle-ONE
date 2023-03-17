@@ -420,10 +420,10 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
                 <StringItem index="0" value="&lt;Escolha uma moeda&gt;"/>
-                <StringItem index="1" value="De Reais a D&#xf3;lares"/>
-                <StringItem index="2" value="De Reais a Euros"/>
-                <StringItem index="3" value="De D&#xf3;lares a Reais"/>
-                <StringItem index="4" value="De Euros a Reais"/>
+                <StringItem index="1" value="Real BRL a D&#xf3;lar USD"/>
+                <StringItem index="2" value="Real BRL a Euros EUR"/>
+                <StringItem index="3" value="D&#xf3;lar USD a Real BRL"/>
+                <StringItem index="4" value="Euro EUR a Real BRL"/>
               </StringArray>
             </Property>
           </Properties>

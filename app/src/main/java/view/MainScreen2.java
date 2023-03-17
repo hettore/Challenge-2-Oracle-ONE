@@ -10,11 +10,8 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.text.html.HTML;
-import model.BrlEur;
-import model.BrlUsd;
 import model.Conversor;
-import model.UsdBrl;
-import model.EurBrl;
+
 
 /**
  *
@@ -241,7 +238,7 @@ public class MainScreen2 extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxMoeda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha uma moeda>", "De Reais a Dólares", "De Reais a Euros", "De Dólares a Reais", "De Euros a Reais" }));
+        jComboBoxMoeda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Escolha uma moeda>", "Real BRL a Dólar USD", "Real BRL a Euros EUR", "Dólar USD a Real BRL", "Euro EUR a Real BRL" }));
         jComboBoxMoeda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxMoedaActionPerformed(evt);
@@ -459,7 +456,8 @@ public class MainScreen2 extends javax.swing.JFrame {
                     
                     //Passo a passo da conversão generica 
                     String moeda = Conversor.realPrice(SITE, CODE);
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + moeda);
+                    double moedaDouble = Double.parseDouble(moeda);
+                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é igual a: " + String.format("%.2f", moedaDouble));
                     String valor1 = jTextFieldInputValor.getText();
                     double valorCerto = Double.parseDouble(valor1);
                     double resultado = Conversor.converterReal(valorCerto, Double.parseDouble(moeda));

@@ -10,10 +10,6 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.text.html.HTML;
-import model.BrlEur;
-import model.BrlUsd;
-import model.UsdBrl;
-import model.EurBrl;
 
 /**
  *
@@ -435,78 +431,78 @@ public class MainScreen extends javax.swing.JFrame {
         
         
 
-        switch (opcao) {
-            case 0 -> jTextFieldTeste.setVisible(false);
-            case 1 -> {
-                try {
-                    //Selecionando de Reais a Dólares
-
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlUsd.valorRealString());
-                    String valor1 = jTextFieldInputValor.getText();
-                    double valorCerto = Double.parseDouble(valor1);
-                    double resultado = BrlUsd.converterReal(valorCerto, BrlUsd.valorRealDouble());
-                    
-                    jTextFieldResultado.setText(String.format("%.2f", resultado));
-                    
-                    System.out.println(resultado);
-                    
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-                }
-            }
-            case 2 -> { 
-                try {
-                    //Selecionando De Reais a Euros
-                    
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlEur.valorRealString());
-                    String valor1 = jTextFieldInputValor.getText();
-                    double valorCerto = Double.parseDouble(valor1);
-                    double resultado = BrlEur.converterReal(valorCerto, BrlEur.valorRealDouble());
-           
-                    jTextFieldResultado.setText(String.format("%.2f", resultado));
-                                        
-                    System.out.println(resultado);
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
-                }
-            }
-            case 3 -> {
-                try {
-                    //Selecionando de Dólares a Reais
-                    
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + UsdBrl.valorDolarString());
-                    String valor1 = jTextFieldInputValor.getText();
-                    double valorCerto = Double.parseDouble(valor1);
-                    double resultado = UsdBrl.converterDolar(valorCerto, UsdBrl.valorDolarDouble());
-           
-                    jTextFieldResultado.setText(String.format("%.2f", resultado));
-                                        
-                    System.out.println(resultado);
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
-                }
-            }
-            case 4 -> {
-                try {
-                    //Selecionando de Euros a Reais
-                    
-                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + EurBrl.valorEuroString());
-                    String valor1 = jTextFieldInputValor.getText();
-                    double valorCerto = Double.parseDouble(valor1);
-                    double resultado = EurBrl.converterEuro(valorCerto, EurBrl.valorEuroDouble());
-           
-                    jTextFieldResultado.setText(String.format("%.2f", resultado));
-                                        
-                    System.out.println(resultado);
-                    
-                } catch (Exception e) {
-                }
-            }
-
-
-        }
+//        switch (opcao) {
+//            case 0 -> jTextFieldTeste.setVisible(false);
+//            case 1 -> {
+//                try {
+//                    //Selecionando de Reais a Dólares
+//
+//                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlUsd.valorRealString());
+//                    String valor1 = jTextFieldInputValor.getText();
+//                    double valorCerto = Double.parseDouble(valor1);
+//                    double resultado = BrlUsd.converterReal(valorCerto, BrlUsd.valorRealDouble());
+//                    
+//                    jTextFieldResultado.setText(String.format("%.2f", resultado));
+//                    
+//                    System.out.println(resultado);
+//                    
+//                } catch (Exception ex) {
+//                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+//                }
+//            }
+//            case 2 -> { 
+//                try {
+//                    //Selecionando De Reais a Euros
+//                    
+//                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + BrlEur.valorRealString());
+//                    String valor1 = jTextFieldInputValor.getText();
+//                    double valorCerto = Double.parseDouble(valor1);
+//                    double resultado = BrlEur.converterReal(valorCerto, BrlEur.valorRealDouble());
+//           
+//                    jTextFieldResultado.setText(String.format("%.2f", resultado));
+//                                        
+//                    System.out.println(resultado);
+//                    
+//                } catch (Exception e) {
+//                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+//                }
+//            }
+//            case 3 -> {
+//                try {
+//                    //Selecionando de Dólares a Reais
+//                    
+//                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + UsdBrl.valorDolarString());
+//                    String valor1 = jTextFieldInputValor.getText();
+//                    double valorCerto = Double.parseDouble(valor1);
+//                    double resultado = UsdBrl.converterDolar(valorCerto, UsdBrl.valorDolarDouble());
+//           
+//                    jTextFieldResultado.setText(String.format("%.2f", resultado));
+//                                        
+//                    System.out.println(resultado);
+//                    
+//                } catch (Exception e) {
+//                    JOptionPane.showMessageDialog(rootPane, e.getMessage());
+//                }
+//            }
+//            case 4 -> {
+//                try {
+//                    //Selecionando de Euros a Reais
+//                    
+//                    jTextFieldTeste.setText("1 " + (String)jComboBoxMoeda.getSelectedItem()+ " é : " + EurBrl.valorEuroString());
+//                    String valor1 = jTextFieldInputValor.getText();
+//                    double valorCerto = Double.parseDouble(valor1);
+//                    double resultado = EurBrl.converterEuro(valorCerto, EurBrl.valorEuroDouble());
+//           
+//                    jTextFieldResultado.setText(String.format("%.2f", resultado));
+//                                        
+//                    System.out.println(resultado);
+//                    
+//                } catch (Exception e) {
+//                }
+//            }
+//
+//
+//        }
         
         
     }//GEN-LAST:event_jButtonConverterActionPerformed
