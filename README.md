@@ -13,7 +13,9 @@ consegue usar o valor atual do momento da consulta.
 
 https://docs.awesomeapi.com.br/api-de-moedas
 
-Obs: para usar esse projeto 
+Obs: Para usar esse projeto é necessário a instalação e import para que a conversão e seus valores venham corretamente:
+https://mvnrepository.com/artifact/org.json/json/20140107
+
 
 ## Tela inicial
 
